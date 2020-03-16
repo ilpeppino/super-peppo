@@ -63,6 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AurynSky\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerState.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Assets\Skybox\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
     <Compile Include="Assets\Skybox\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
     <None Include="Assets\00. Downloaded\Fantasy Forest Environment Free Sample\StandardNoCulling.shader" />
+    <None Include="Assets\AurynSky\Gems Ultimate Pack\READ ME.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>F:/gitrepo/Super Peppo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

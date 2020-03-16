@@ -32,10 +32,10 @@ public class PlayerMovement : MonoBehaviour
         _playerAnimation = GetComponent<PlayerAnimation>();
         _rb = GetComponent<Rigidbody>();
 
-        _speed = 3f;
+        _speed = 4f;
         _isFacingRight = true;
         _isOnGround = true;
-        _jumpForce = 25f;
+        _jumpForce = 20f;
     }
 
 
@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
         JumpPlayer();
         RotatePlayer();
-        AnimatePlayer();
     }
 
     private void FixedUpdate()
@@ -55,10 +54,7 @@ public class PlayerMovement : MonoBehaviour
         if (_isOnGround && _playerState == PlayerState.isJumping)
         {
             _rb.AddForce(_jump * Vector3.up * Time.fixedDeltaTime * _jumpForce, ForceMode.Impulse);
-            Debug.Log("AddForce is on ");
         } 
-        else 
-            Debug.Log("AddForce is off");
 
     }
 
@@ -70,6 +66,10 @@ public class PlayerMovement : MonoBehaviour
         if (_input != 0f)
         {
             ExecutionAnimation(PlayerState.isWalking);
+        } 
+        else
+        {
+            ExecutionAnimation(PlayerState.isIdle);
         }
 
         _movement = new Vector3(_input * Time.fixedDeltaTime * _speed, 0f, 0f);
@@ -96,31 +96,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_input > 0f && !_isFacingRight)
         {
-            Debug.Log("Turning left");
             transform.Rotate(0f, 180f, 0f);
             _isFacingRight = true;
         }
 
         else if (_input < 0f && _isFacingRight)
         {
-            Debug.Log("Turning right");
             transform.Rotate(0f, -180f, 0f);
             _isFacingRight = false;
         } 
 
-    }
-
-    private void AnimatePlayer()
-    {
-
-/*        if (_input > Mathf.Epsilon || _input < -Mathf.Epsilon)
-        {
-            ExecutionAnimation(PlayerState.isWalking);  
-        }
-        else
-        {
-            ExecutionAnimation(PlayerState.isIdle);
-        }*/
     }
 
 
@@ -128,7 +113,6 @@ public class PlayerMovement : MonoBehaviour
     {
         _playerState = playerState;
         _playerAnimation.PlayAnimation(_playerState);
-        Debug.Log(_playerState);
     }
 
     private void OnCollisionEnter(Collision collision)
