@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerAnimation _playerAnimation;
     private PlayerState _playerState;
+    private PlayerAerialState _playerAerialState;
     private Rigidbody _rb;
 
     #endregion
@@ -22,19 +23,20 @@ public class PlayerMovement : MonoBehaviour
     private float _input;
     private float _jump;
     private bool _isFacingRight; // 1 = facing right, -1 = facing left
-    private bool _isOnGround;
+    //private bool _isOnGround;
 
     #endregion
 
     private void Awake()
     {
         _playerState = PlayerState.isIdle;
+        _playerAerialState = PlayerAerialState.isOnGround;
         _playerAnimation = GetComponent<PlayerAnimation>();
         _rb = GetComponent<Rigidbody>();
 
         _speed = 4f;
         _isFacingRight = true;
-        _isOnGround = true;
+      //  _isOnGround = true;
         _jumpForce = 20f;
     }
 
@@ -50,10 +52,11 @@ public class PlayerMovement : MonoBehaviour
      {
 
         transform.position += _movement;
-        Debug.Log("On ground: " + _isOnGround + " - State: " + _playerState);
-        if (_isOnGround && _playerState == PlayerState.isJumping)
+        Debug.Log("On ground: " + _playerAerialState + " - State: " + _playerState);
+        if (_playerAerialState == PlayerAerialState.isOnGround && _playerState == PlayerState.isJumping)
         {
             _rb.AddForce(_jump * Vector3.up * Time.fixedDeltaTime * _jumpForce, ForceMode.Impulse);
+            //_playerAerialState = PlayerAerialState.isInAir;
         } 
 
     }
@@ -120,8 +123,9 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             Debug.Log("Player entered collision with " + collision.gameObject.tag);
-            _isOnGround = true;
+            _playerAerialState = PlayerAerialState.isOnGround;
         }
+
     }
 
     private void OnCollisionExit(Collision collision)
@@ -129,9 +133,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             Debug.Log("Player exited collision with " + collision.gameObject.tag);
-            _isOnGround = false;
+            _playerAerialState = PlayerAerialState.isInAir;
         }
-        
+
     }
+
 
 }
