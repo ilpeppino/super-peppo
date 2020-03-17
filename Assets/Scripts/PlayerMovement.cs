@@ -6,6 +6,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    #region Inspector
+
+    [SerializeField] private float 
+        _speed = 7f;
+
+    [SerializeField] private float 
+        _jumpForce = 20f;
+
+    #endregion
+
     #region Cached references
 
     private PlayerAnimation _playerAnimation;
@@ -17,13 +27,12 @@ public class PlayerMovement : MonoBehaviour
 
     #region Local variables
 
-    private Vector3 _movement;
-    private float _speed;
-    private float _jumpForce;
+    private Vector3 _movement;    
     private float _input;
     private float _jump;
-    private bool _isFacingRight; // 1 = facing right, -1 = facing left
-    //private bool _isOnGround;
+
+    private bool _isFacingRight = true;
+
 
     #endregion
 
@@ -34,12 +43,7 @@ public class PlayerMovement : MonoBehaviour
         _playerAnimation = GetComponent<PlayerAnimation>();
         _rb = GetComponent<Rigidbody>();
 
-        _speed = 4f;
-        _isFacingRight = true;
-      //  _isOnGround = true;
-        _jumpForce = 20f;
     }
-
 
     private void Update()
     {
@@ -61,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
     private void MovePlayer()
     {
         _input = Input.GetAxis("Horizontal");
@@ -78,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
         _movement = new Vector3(_input * Time.fixedDeltaTime * _speed, 0f, 0f);
     }
 
-
     private void JumpPlayer()
     {
 
@@ -93,7 +95,6 @@ public class PlayerMovement : MonoBehaviour
             ExecutionAnimation(PlayerState.isWalking);
         }
     }
-
 
     private void RotatePlayer()
     {
@@ -110,7 +111,6 @@ public class PlayerMovement : MonoBehaviour
         } 
 
     }
-
 
     private void ExecutionAnimation (PlayerState playerState)
     {

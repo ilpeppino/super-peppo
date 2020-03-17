@@ -6,18 +6,26 @@ public class EnemyCollision : MonoBehaviour
 {
 
     private ParticleSystem _particleSystem;
+    private float _bounce;
 
     private void Awake()
     {
         _particleSystem = GetComponent<ParticleSystem>();
+        _bounce = 50f;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+
+
         if (collision.gameObject.tag == "Player")
         {
-            _particleSystem.Play();
+            //_particleSystem.Play();
+
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * Time.deltaTime * _bounce, ForceMode.Impulse);
+
+            
+
         }
 
     }
