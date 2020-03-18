@@ -1314,6 +1314,7 @@ GameObject:
   - component: {fileID: 1893938684}
   - component: {fileID: 1893938685}
   - component: {fileID: 8805055075028544445}
+  - component: {fileID: 8825767408596625251}
   m_Layer: 0
   m_Name: penguin
   m_TagString: Player
@@ -1371,7 +1372,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 72
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!136 &1893938688
 CapsuleCollider:
@@ -1399,6 +1400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3fa1489d086a74cb9abb48ab46a2c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 7
+  _jumpForce: 20
 --- !u!114 &1893938685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,3 +1454,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8825767408596625251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03eed856a481ca54d8ce87a5a3cd9605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 0}

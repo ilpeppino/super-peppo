@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     #region Cached references
 
-    private PlayerAnimation _playerAnimation;
+    private PlayerAnimator _playerAnimation;
     private PlayerState _playerState;
     private PlayerAerialState _playerAerialState;
     private Rigidbody _rb;
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _playerState = PlayerState.isIdle;
         _playerAerialState = PlayerAerialState.isOnGround;
-        _playerAnimation = GetComponent<PlayerAnimation>();
+        _playerAnimation = GetComponent<PlayerAnimator>();
         _rb = GetComponent<Rigidbody>();
 
     }
