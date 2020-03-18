@@ -821,6 +821,7 @@ GameObject:
   - component: {fileID: 4882590064214274}
   - component: {fileID: 95528395651247964}
   - component: {fileID: 664054664}
+  - component: {fileID: 1190703364}
   m_Layer: 0
   m_Name: TurtleShell
   m_TagString: Turtle
@@ -876,6 +877,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1985073, y: 1.1324048, z: 1.1904545}
   m_Center: {x: 0.018761635, y: 0.57479787, z: 0.009442329}
+--- !u!114 &1190703364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837317425425208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d3184e3db09cf40b5d7d1ddef0a382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAnimator: {fileID: 95528395651247964}
 --- !u!1 &1914324128724412
 GameObject:
   m_ObjectHideFlags: 0
