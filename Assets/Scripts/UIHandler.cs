@@ -13,6 +13,16 @@ public class UIHandler : MonoBehaviour
     {
         _currentScore = 0;
         _scoreText = GetComponent<Text>();
+        PrintScore(_currentScore);
+    }
+
+    public void ScorePoints(int points)
+    {
+        _currentScore += points;
+    }
+
+    private void PrintScore(int points)
+    {
         _scoreText.text = _currentScore.ToString();
     }
 

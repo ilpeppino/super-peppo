@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
         _speed = 7f;
 
     [SerializeField] private float 
-        _jumpForce = 20f;
+        _jumpForce = 40f;
 
     #endregion
 
