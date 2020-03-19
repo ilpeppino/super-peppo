@@ -69,8 +69,10 @@
     <Compile Include="Assets\Scripts\EnemyCollision.cs" />
     <Compile Include="Assets\Scripts\EnemyHandler.cs" />
     <Compile Include="Assets\Scripts\EnemySettings.cs" />
+    <Compile Include="Assets\Scripts\GameMusicHandler.cs" />
     <Compile Include="Assets\Scripts\PlayerAerialState.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
+    <Compile Include="Assets\Scripts\PlayerAudioHandler.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerState.cs" />
     <Compile Include="Assets\Scripts\UIHandler.cs" />

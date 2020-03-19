@@ -18,9 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
     #region Cached references
 
-    private PlayerAnimator _playerAnimation;
+    private PlayerAnimator _playerAnimator;
     private PlayerState _playerState;
     private PlayerAerialState _playerAerialState;
+    private PlayerAudioHandler _playerAudioHandler;
     private ParticleSystem _iceAttack;
     private Rigidbody _rb;
 
@@ -41,7 +42,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _playerState = PlayerState.isIdle;
         _playerAerialState = PlayerAerialState.isOnGround;
-        _playerAnimation = GetComponent<PlayerAnimator>();
+        _playerAnimator = GetComponent<PlayerAnimator>();
+        _playerAudioHandler = GetComponent<PlayerAudioHandler>();
         _rb = GetComponent<Rigidbody>();
         _iceAttack = GetComponent<ParticleSystem>();
         Debug.Log(_iceAttack);
@@ -74,11 +76,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (_input != 0f)
         {
-            ExecutionAnimation(PlayerState.isWalking);
+            ExecuteAnimation(PlayerState.isWalking);
+            _playerAudioHandler.PlayAudio(PlayerState.isWalking);
         } 
         else
         {
-            ExecutionAnimation(PlayerState.isIdle);
+            ExecuteAnimation(PlayerState.isIdle);
         }
 
         _movement = new Vector3(_input * Time.fixedDeltaTime * _speed, 0f, 0f);
@@ -91,11 +94,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (_jump != 0f)
         {
-            ExecutionAnimation(PlayerState.isJumping);
+            ExecuteAnimation(PlayerState.isJumping);
         }
         else if (_jump == 0f && (_playerState == PlayerState.isJumping))
         {
-            ExecutionAnimation(PlayerState.isWalking);
+            ExecuteAnimation(PlayerState.isWalking);
         }
     }
 
@@ -123,10 +126,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ExecutionAnimation (PlayerState playerState)
+    private void ExecuteAnimation (PlayerState playerState)
     {
         _playerState = playerState;
-        _playerAnimation.PlayAnimation(_playerState);
+        _playerAnimator.PlayAnimation(_playerState);
     }
 
     private void OnCollisionEnter(Collision collision)
