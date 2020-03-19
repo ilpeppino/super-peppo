@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyHandler : MonoBehaviour
 {
 
+    [SerializeField] private EnemySettings _enemySettings;
+
     private void Update()
     {
         

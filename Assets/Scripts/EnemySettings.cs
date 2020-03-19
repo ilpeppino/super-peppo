@@ -4,9 +4,10 @@
 
 public class EnemySettings : ScriptableObject
 {
-
-    bool canJump;
-    bool canAttack;
-    bool canMove;
+    [SerializeField] bool canJump;
+    [SerializeField] bool canAttack;
+    [SerializeField] bool canMove;
+    [SerializeField] bool canBouncePlayer;
+    [SerializeField] int damageAmount;
 
 }

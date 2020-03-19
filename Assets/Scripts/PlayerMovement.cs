@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimator _playerAnimation;
     private PlayerState _playerState;
     private PlayerAerialState _playerAerialState;
+    private ParticleSystem _iceAttack;
     private Rigidbody _rb;
 
     #endregion
@@ -42,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
         _playerAerialState = PlayerAerialState.isOnGround;
         _playerAnimation = GetComponent<PlayerAnimator>();
         _rb = GetComponent<Rigidbody>();
+        _iceAttack = GetComponent<ParticleSystem>();
+        Debug.Log(_iceAttack);
 
     }
 
@@ -110,6 +113,14 @@ public class PlayerMovement : MonoBehaviour
             _isFacingRight = false;
         } 
 
+    }
+
+    private void ShootIce()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _iceAttack.Play();
+        }
     }
 
     private void ExecutionAnimation (PlayerState playerState)
