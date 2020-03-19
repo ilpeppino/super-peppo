@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState _playerState;
     private PlayerAerialState _playerAerialState;
     private PlayerAudioHandler _playerAudioHandler;
-    private ParticleSystem _iceAttack;
+    private GameObject _iceAttack;
     private Rigidbody _rb;
 
     #endregion
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         _playerAnimator = GetComponent<PlayerAnimator>();
         _playerAudioHandler = GetComponent<PlayerAudioHandler>();
         _rb = GetComponent<Rigidbody>();
-        _iceAttack = GetComponent<ParticleSystem>();
+
         Debug.Log(_iceAttack);
 
     }
@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
         JumpPlayer();
         RotatePlayer();
+
     }
 
     private void FixedUpdate()
@@ -118,13 +119,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void ShootIce()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            _iceAttack.Play();
-        }
-    }
+
 
     private void ExecuteAnimation (PlayerState playerState)
     {

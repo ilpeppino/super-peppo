@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\EnemyHandler.cs" />
     <Compile Include="Assets\Scripts\EnemySettings.cs" />
     <Compile Include="Assets\Scripts\GameMusicHandler.cs" />
+    <Compile Include="Assets\Scripts\GameRewardHandler.cs" />
     <Compile Include="Assets\Scripts\PlayerAerialState.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\PlayerAudioHandler.cs" />
