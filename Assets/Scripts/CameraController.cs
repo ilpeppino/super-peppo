@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour
 
     private const float 
         XOFFSET = 0f,
-        YOFFSET = 5f,
-        ZOFFSET = -20f;
+        YOFFSET = 10f,
+        ZOFFSET = -25f;
 
     public Transform target;
 

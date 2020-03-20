@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         _playerAudioHandler = GetComponent<PlayerAudioHandler>();
         _rb = GetComponent<Rigidbody>();
 
-        Debug.Log(_iceAttack);
+
 
     }
 
