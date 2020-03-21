@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\PlayerAudioHandler.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\RewardSettings.cs" />
     <Compile Include="Assets\Scripts\UIHandler.cs" />
     <Compile Include="Assets\Skybox\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
     <Compile Include="Assets\Skybox\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />

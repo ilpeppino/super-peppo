@@ -233,12 +233,8 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1930477717}
+    m_TransformParent: {fileID: 1006500274}
     m_Modifications:
-    - target: {fileID: 44020186, guid: 40622103d618b1e43b3c9ea67ff0a1e3, type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 44020185}
     - target: {fileID: 1401821474702656, guid: 40622103d618b1e43b3c9ea67ff0a1e3, type: 3}
       propertyPath: m_Name
       value: SilverCoin
@@ -2618,6 +2614,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 948694187}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1006500273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1006500274}
+  m_Layer: 0
+  m_Name: CoinLowPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1006500274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006500273}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 44020184}
+  m_Father: {fileID: 1930477717}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1017045336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4834,7 +4861,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1930477717}
-  - {fileID: 1789983593}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5063,36 +5089,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1698871194}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1789983592
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1789983593}
-  m_Layer: 0
-  m_Name: ItemAnimations
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1789983593
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1789983592}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1605208589}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1809381298
 GameObject:
   m_ObjectHideFlags: 0
@@ -5581,7 +5577,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 44020184}
+  - {fileID: 1006500274}
   m_Father: {fileID: 1605208589}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

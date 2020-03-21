@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState _playerState;
     private PlayerAerialState _playerAerialState;
     private PlayerAudioHandler _playerAudioHandler;
-    private GameObject _iceAttack;
     private Rigidbody _rb;
 
     #endregion

@@ -4,28 +4,28 @@ using UnityEngine.UI;
 public class UIHandler : MonoBehaviour
 {
 
-    private Text _scoreText;
+    private static Text _scoreText;
 
-    private int _currentScore;
+    private static int _currentScore;
 
 
     private void Awake()
     {
         _currentScore = 0;
         _scoreText = GetComponent<Text>();
-        PrintScore(_currentScore);
+        PrintScore();
+
     }
 
-    public void ScorePoints(int points)
+    public static void ScorePoints(int points)
     {
         _currentScore += points;
+        
     }
 
-    private void PrintScore(int points)
+    public  static void PrintScore()
     {
         _scoreText.text = _currentScore.ToString();
     }
-
-
 
 }
