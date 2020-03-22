@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameRewardHandler : MonoBehaviour
 {
 
@@ -15,7 +16,6 @@ public class GameRewardHandler : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        //_animator.SetBool("isCoinCaught", false);
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -25,14 +25,14 @@ public class GameRewardHandler : MonoBehaviour
             AudioSource.PlayClipAtPoint(_coinSound, transform.position);
             _silverCoinParticles.Play();
             _animator.Play("SilverCoinWon");
-            //_animator.SetBool("isCoinCaught", true);
             ScoreHandler.ScorePoints(_rewardSettings.points);
             
         }
 
     }
 
-    private void DestroyCoin()
+    // Event fired once SilverCoinWon animation is finished
+    private void DestroyCoin() 
     {
         Destroy(gameObject);
     }

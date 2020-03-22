@@ -1,4 +1,6 @@
-﻿public enum PlayerState
+﻿// TODO: isRunning?
+
+public enum PlayerState
 {
     isIdle,
     isMoving
