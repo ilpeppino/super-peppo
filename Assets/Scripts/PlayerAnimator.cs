@@ -22,14 +22,9 @@ public class PlayerAnimator : MonoBehaviour
                     return;
                 }
 
-            case PlayerState.isWalking:
+            case PlayerState.isMoving:
                 {
                     _playerAnimator.Play("walk");
-                    return;
-                }
-
-            case PlayerState.isJumping:
-                {
                     return;
                 }
 

@@ -26,8 +26,7 @@ public class GameRewardHandler : MonoBehaviour
             _silverCoinParticles.Play();
             _animator.Play("SilverCoinWon");
             //_animator.SetBool("isCoinCaught", true);
-            UIHandler.ScorePoints(_rewardSettings.points);
-            UIHandler.PrintScore();
+            ScoreHandler.ScorePoints(_rewardSettings.points);
             
         }
 

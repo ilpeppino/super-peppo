@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
 
     #region Inspector
 
-    [SerializeField] private float 
+    [SerializeField]
+    private float
         _speed = 7f;
 
-    [SerializeField] private float 
+    [SerializeField]
+    private float
         _jumpForce = 40f;
 
     #endregion
@@ -20,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerAnimator _playerAnimator;
     private PlayerState _playerState;
-    private PlayerAerialState _playerAerialState;
     private PlayerAudioHandler _playerAudioHandler;
     private Rigidbody _rb;
 
@@ -28,11 +29,13 @@ public class PlayerMovement : MonoBehaviour
 
     #region Local variables
 
-    private Vector3 _movement;    
-    private float _input;
-    private float _jump;
+    private Vector3 _jump;
+    private Vector3 _movement;
+    //private float _input;
+
 
     private bool _isFacingRight = true;
+    private bool _isGrounded = true;
 
 
     #endregion
@@ -40,13 +43,9 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _playerState = PlayerState.isIdle;
-        _playerAerialState = PlayerAerialState.isOnGround;
         _playerAnimator = GetComponent<PlayerAnimator>();
         _playerAudioHandler = GetComponent<PlayerAudioHandler>();
         _rb = GetComponent<Rigidbody>();
-
-
-
     }
 
     private void Update()
@@ -55,83 +54,71 @@ public class PlayerMovement : MonoBehaviour
         JumpPlayer();
         RotatePlayer();
 
+        DeterminePlayerState();
+        ExecuteAnimation(_playerState);
+        PlaySoundEffects(_playerState);
+
     }
 
     private void FixedUpdate()
-     {
+    {
 
         transform.position += _movement;
-        Debug.Log("On ground: " + _playerAerialState + " - State: " + _playerState);
-        if (_playerAerialState == PlayerAerialState.isOnGround && _playerState == PlayerState.isJumping)
-        {
-            _rb.AddForce(_jump * Vector3.up * Time.fixedDeltaTime * _jumpForce, ForceMode.Impulse);
-            //_playerAerialState = PlayerAerialState.isInAir;
-        } 
+
+        if (_isGrounded) 
+            _rb.AddForce(_jump, ForceMode.Impulse);
+
 
     }
 
     private void MovePlayer()
     {
-        _input = Input.GetAxis("Horizontal");
-
-        if (_input != 0f)
-        {
-            ExecuteAnimation(PlayerState.isWalking);
-            _playerAudioHandler.PlayAudio(PlayerState.isWalking);
-        } 
-        else
-        {
-            ExecuteAnimation(PlayerState.isIdle);
-        }
-
-        _movement = new Vector3(_input * Time.fixedDeltaTime * _speed, 0f, 0f);
+        _movement = new Vector3(Input.GetAxis("Horizontal") * Time.fixedDeltaTime * _speed, 0f, 0f);
     }
 
     private void JumpPlayer()
     {
-
-        _jump = Input.GetAxis("Jump");
-
-        if (_jump != 0f)
-        {
-            ExecuteAnimation(PlayerState.isJumping);
-        }
-        else if (_jump == 0f && (_playerState == PlayerState.isJumping))
-        {
-            ExecuteAnimation(PlayerState.isWalking);
-        }
+        _jump = Input.GetAxis("Jump") * Vector3.up * Time.fixedDeltaTime * _jumpForce;
     }
 
     private void RotatePlayer()
     {
-        if (_input > 0f && !_isFacingRight)
+        if (_movement.x > 0f && !_isFacingRight)
         {
             transform.Rotate(0f, 180f, 0f);
             _isFacingRight = true;
         }
 
-        else if (_input < 0f && _isFacingRight)
+        else if (_movement.x < 0f && _isFacingRight)
         {
             transform.Rotate(0f, -180f, 0f);
             _isFacingRight = false;
-        } 
+        }
 
     }
 
-
-
-    private void ExecuteAnimation (PlayerState playerState)
+    private void DeterminePlayerState()
     {
-        _playerState = playerState;
+        if (_movement.x != 0f)_playerState = PlayerState.isMoving; 
+        else _playerState = PlayerState.isIdle;
+
+    }
+
+    private void ExecuteAnimation(PlayerState playerState)
+    {
         _playerAnimator.PlayAnimation(_playerState);
+    }
+
+    private void PlaySoundEffects(PlayerState playerState)
+    {
+        _playerAudioHandler.PlayAudio(playerState);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
-            Debug.Log("Player entered collision with " + collision.gameObject.tag);
-            _playerAerialState = PlayerAerialState.isOnGround;
+            _isGrounded = true;
         }
 
     }
@@ -140,8 +127,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            Debug.Log("Player exited collision with " + collision.gameObject.tag);
-            _playerAerialState = PlayerAerialState.isInAir;
+            _isGrounded = false;
         }
 
     }

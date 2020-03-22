@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\EnemyCollision.cs" />
     <Compile Include="Assets\Scripts\EnemyHandler.cs" />
     <Compile Include="Assets\Scripts\EnemySettings.cs" />
+    <Compile Include="Assets\Scripts\EnemyStateHandler.cs" />
     <Compile Include="Assets\Scripts\GameMusicHandler.cs" />
     <Compile Include="Assets\Scripts\GameRewardHandler.cs" />
     <Compile Include="Assets\Scripts\PlayerAerialState.cs" />
@@ -77,7 +78,7 @@
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerState.cs" />
     <Compile Include="Assets\Scripts\RewardSettings.cs" />
-    <Compile Include="Assets\Scripts\UIHandler.cs" />
+    <Compile Include="Assets\Scripts\ScoreHandler.cs" />
     <Compile Include="Assets\Skybox\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
     <Compile Include="Assets\Skybox\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
     <Compile Include="Assets\Skybox\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />

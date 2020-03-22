@@ -1312,10 +1312,10 @@ GameObject:
   - component: {fileID: 3259963605250272765}
   - component: {fileID: 1207341408}
   - component: {fileID: 3891598695455424680}
-  - component: {fileID: 8717415759458403035}
-  - component: {fileID: 2887251264792405425}
   - component: {fileID: 649882810}
-  - component: {fileID: 649882809}
+  - component: {fileID: 2887251264792405425}
+  - component: {fileID: 8717415759458403035}
+  - component: {fileID: 7453549771909263046}
   m_Layer: 0
   m_Name: penguin
   m_TagString: Player
@@ -1374,7 +1374,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1207341408
 BoxCollider:
@@ -1428,33 +1428,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8717415759458403035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f09d44a3ee12c234296c1332b1b7422b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 9582806}
---- !u!114 &2887251264792405425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c3fa1489d086a74cb9abb48ab46a2c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 10
-  _jumpForce: 25
 --- !u!82 &649882810
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1551,7 +1524,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &649882809
+--- !u!114 &2887251264792405425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3fa1489d086a74cb9abb48ab46a2c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _jumpForce: 25
+--- !u!114 &8717415759458403035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09d44a3ee12c234296c1332b1b7422b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 9582806}
+--- !u!114 &7453549771909263046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAudioClips:
   - playerState: 1
-    audioClip: {fileID: 8300000, guid: 5a33dbcab86172c4fab3249425fb2312, type: 3}
+    audioClip: {fileID: 8300000, guid: 7278349329c466d4ea3b5d813ac1088e, type: 3}
 --- !u!1 &1779717031
 GameObject:
   m_ObjectHideFlags: 0
