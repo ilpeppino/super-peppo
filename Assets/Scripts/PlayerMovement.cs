@@ -70,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
         if (_isGrounded) 
             _rb.AddForce(_jump, ForceMode.Impulse);
 
+        Debug.Log("Player grounded: " + _isGrounded);
+
 
     }
 
@@ -81,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
     private void JumpPlayer()
     {
         _jump = Input.GetAxis("Jump") * Vector3.up * Time.fixedDeltaTime * _jumpForce;
+
+        Debug.Log("Plsyrt jumping: " + _jump);
     }
 
     private void RotatePlayer()
