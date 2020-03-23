@@ -15,18 +15,26 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(gameObject.tag);
 
+        if (gameObject.tag == "Slime")
 
-        if (collision.gameObject.tag == "Player")
-        {
-            //_particleSystem.Play();
-
+        {        
             collision.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * Time.deltaTime * _bounce, ForceMode.Impulse);
+            return;
+        }
+
+        if (gameObject.tag == "Turtle")
+        {
+            Vector3 dir = -(collision.contacts[0].point - collision.gameObject.transform.position);
+
+            var force = new Vector3(dir.x, Mathf.Abs(dir.y), dir.z);
+
+            collision.rigidbody.AddForce(force * Time.fixedDeltaTime * 100f, ForceMode.Impulse);
 
 
 
         }
-
     }
 
 }

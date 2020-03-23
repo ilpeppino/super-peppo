@@ -1467,6 +1467,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 933215025}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &508473182
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508473181}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.69910717
+  m_Height: 1.3982143
+  m_Direction: 1
+  m_Center: {x: -0.01683712, y: 0.5720403, z: 0}
 --- !u!114 &508473185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2702,7 +2716,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 664054664, guid: 3aec22b5d3f3c2947bb81040b56e5f96, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3aec22b5d3f3c2947bb81040b56e5f96, type: 3}
 --- !u!1001 &948694187
 PrefabInstance:

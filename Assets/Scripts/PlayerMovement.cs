@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _jump = Input.GetAxis("Jump") * Vector3.up * Time.fixedDeltaTime * _jumpForce;
 
-        Debug.Log("Plsyrt jumping: " + _jump);
+        Debug.Log("Player jumping: " + _jump);
     }
 
     private void RotatePlayer()
