@@ -6,12 +6,11 @@ public class EnemyCollision : MonoBehaviour
 {
 
     private ParticleSystem _particleSystem;
-    private float _bounce;
+    private float _bounce = 50f;
 
     private void Awake()
     {
         _particleSystem = GetComponent<ParticleSystem>();
-        _bounce = 50f;
     }
 
     private void OnCollisionEnter(Collision collision)

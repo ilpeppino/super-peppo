@@ -7,8 +7,9 @@ public class GameRewardHandler : MonoBehaviour
 {
 
     [SerializeField] private AudioClip _coinSound;
-    [SerializeField] private ParticleSystem _silverCoinParticles;
+    [SerializeField] private ParticleSystem _coinParticles;
     [SerializeField] private RewardSettings _rewardSettings;
+    //[SerializeField] private GameObject _coin;
 
     private Animator _animator;
 
@@ -16,6 +17,9 @@ public class GameRewardHandler : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+
+        _coinParticles.transform.position = transform.position;
+
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -23,8 +27,8 @@ public class GameRewardHandler : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             AudioSource.PlayClipAtPoint(_coinSound, transform.position);
-            _silverCoinParticles.Play();
-            _animator.Play("SilverCoinWon");
+            _coinParticles.Play();
+            _animator.Play("CoinWon");
             ScoreHandler.ScorePoints(_rewardSettings.points);
             
         }
